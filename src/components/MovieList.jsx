@@ -7,17 +7,26 @@ export default class MovieList extends React.Component {
       super();
   
       this.state = {
-        moviesData: []
+        movies: [] 
       };
+    }
+
+   componentDidMount() {
+     this.setState({
+        movies: moviesData
+       });
     }
     
     render() {
       return(
-        <div className="col-sm-3">
-        {this.state.moviesData}
-          {this.state.moviesData.map(movie => {
+        <div className="row">
+          {this.state.movies.map(movie => {
               return (
-                <MovieItem  key={movie.id} item={movie} />
+                <MovieItem 
+                key={movie.id}
+                item={movie}
+                addMovieWatch={this.props.addMovieWatch}
+                removeMovieWatch={this.props.removeMovieWatch}/>
               );
             })
            }
