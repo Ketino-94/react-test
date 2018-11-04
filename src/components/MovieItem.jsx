@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 export default class MovieItem extends React.Component{
     state = {
-        willWatch: false,
         movie: this.props.item
     };
 
