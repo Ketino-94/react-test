@@ -32,12 +32,12 @@ export default class MovieItem extends React.Component{
     const { willWatch } = this.state;
     const { item } = this.props;
       return(
-        <div className="col-sm-3">
+        <div className="col-sm-4 mb-4">
             <div className="card">
+            <img className="card-img-top" src={`https://image.tmdb.org/t/p/w500${item.backdrop_path || item.poster_path}`} alt=""/>
                 <div className="card-body">
-                <img className="card-img-top" src={`https://image.tmdb.org/t/p/w500${item.backdrop_path || item.poster_path}`} alt=""/>
                     <h5 className="card-title">{item.title}</h5>
-                    <p className="card-text"></p>
+                    <p className="mb-1">Rating: {item.vote_average}</p>
                     <button className={`btn ${willWatch ? "btn-success" : "btn-primary"}`} 
                     onClick={this.changeWillWatch} >Will Watch </button>
                 </div>

@@ -12,11 +12,8 @@ export default class App extends React.Component  {
   }
   
   addMovieWatch = movie => {
-    const newMoviesWillWatch = [...this.state.moviesWillWatch];
-    newMoviesWillWatch.push(movie);
-
     this.setState({
-      moviesWillWatch: newMoviesWillWatch
+      moviesWillWatch: [...this.state.moviesWillWatch, movie] 
     });
   };
 
@@ -30,15 +27,16 @@ export default class App extends React.Component  {
   };
 
   render() {
+    const { moviesWillWatch } = this.state;
     return (
       <div className="container">
-        <div className="row">
+        <div className="row mt-4">
           <div className="col-sm-9">
             <MovieList addMovieWatch={this.addMovieWatch}
                   removeMovieWatch={this.removeMovieWatch}/>
           </div>
           <div className="col-sm-3">
-           <MoviesWillWatch />
+           <MoviesWillWatch moviesWillWatch={moviesWillWatch}/>
           </div>
         </div>
       </div>
